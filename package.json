@@ -17,6 +17,8 @@
 	},
 	"homepage": "https://github.com/rektide/1m1k",
 	"dependencies": {
+		"shift-ast": "^1.0.2",
+		"shift-codegen": "^1.0.1",
 		"shift-parser": "^1.0.1"
 	}
 }
