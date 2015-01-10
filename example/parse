@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+var src = require('fs').readFileSync(process.argv[2] || __dirname+'/../1m1k.js', 'utf8');
+var om1k = require('../1m1k')(src);
