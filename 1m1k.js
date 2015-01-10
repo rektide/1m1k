@@ -20,9 +20,9 @@ var _params = ['$1','$2','$3','$4','$5','$6','$7','$8','$9'].map(function(param)
 })
 
 // function($1,...){ [[ast]] }
-function expressionStatement(ast){
+function expressionStatement(ast, name){
 	return new AST.ExpressionStatement(
-		new AST.FunctionExpression(null, _params, new AST.FunctionBody([], ast)))
+		new AST.FunctionExpression(name||null, _params, new AST.FunctionBody([], ast)))
 }
 
 // module.exports = [[ast]]
@@ -38,11 +38,10 @@ function exportize(ast){
 			ast))
 }
 
-function om1k(src){
+function om1k(src, name){
 	var ast= parser(src).body.statements
 	ast= returnize(ast)
-	ast= expressionStatement(ast)
-	ast= exportize(ast)
+	ast= expressionStatement(ast, name)
 	var out= codegen(ast)
 	return out
 };
