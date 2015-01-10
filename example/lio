@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+// parse in the the program, converted to a function
+var om1k= require('../1m1k')
+var args= process.argv.splice(2).join(' ')
+try{
+	var src= om1k(args)
+}catch(ex){
+	console.error(ex)
+	process.exit(1)
+}
+try{
+	var program= eval(src)
+}catch(ex){
+	console.error(ex)
+	process.exit(2)
+}
+
+// run function on each line
+var line= require('line-readable-stream')
+var stream= new line(process.stdin)
+stream.setEncoding('utf8')
+stream.on('line', function(data){
+	var out= program(data)
+	process.stdout.write(out, 'utf8')
+})
+stream.on('end', function(){
+	process.exit()
+})
+

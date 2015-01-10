@@ -39,7 +39,9 @@ function exportize(ast){
 }
 
 function om1k(src, name){
-	var ast= parser(src).body.statements
+	var ast= parser(src).body
+	ast = ast.statements.length ? ast.statements : ast.directives
+	console.log(require('util').inspect(ast, {depth: null}))
 	ast= returnize(ast)
 	ast= expressionStatement(ast, name)
 	var out= codegen(ast)
