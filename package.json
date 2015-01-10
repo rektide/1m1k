@@ -1,0 +1,22 @@
+{
+	"name": "1m1k",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rektide/1m1k"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/rektide/1m1k/issues"
+	},
+	"homepage": "https://github.com/rektide/1m1k",
+	"dependencies": {
+		"shift-parser": "^1.0.1"
+	}
+}
